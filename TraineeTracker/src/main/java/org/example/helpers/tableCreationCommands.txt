@@ -1,0 +1,23 @@
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    trainingtype VARCHAR(50)
+);
+
+CREATE TABLE session (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    description TEXT,
+    instructor VARCHAR(255),
+    date DATE,
+    trainingtype VARCHAR(50)
+);
+
+CREATE TABLE participation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    studentid INT,
+    sessionid INT,
+    FOREIGN KEY (studentid) REFERENCES student(id),
+    FOREIGN KEY (sessionid) REFERENCES session(id)
+);
